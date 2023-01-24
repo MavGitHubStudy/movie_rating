@@ -57,3 +57,17 @@ def show_databases():
                     print(db)
     except Error as e:
         print(e)
+
+
+def connect_to_database(database_name):
+    try:
+        with connect(
+            host="localhost",
+            user=input("Имя пользователя: "),
+            password=getpass("Пароль: "),
+            database=database_name
+        ) as connection:
+            print(connection)
+            print(f"Соединение с БД {database_name} успешно установлено.")
+    except Error as e:
+        print(e)
